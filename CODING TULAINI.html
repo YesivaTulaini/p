@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            
+            if(username === "admin" && password === "12345") {
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("content-container").style.display = "block";
+            } else {
+                alert("Username atau Password salah!");
+            }
+        }
+
+        function showPage(pageId) {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = "none";
+            }
+            document.getElementById(pageId).style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <!-- Halaman Login -->
+    <div id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Masuk</button>
+    </div>
+
+    <!-- Konten Website -->
+    <div id="content-container" style="display: none;">
+        <nav>
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('about')">About</button>
+            <button onclick="showPage('contact')">Contact</button>
+        </nav>
+
+        <div id="home" class="page">
+            <h1>Halaman Home</h1>
+            <p>Ini adalah halaman beranda.</p>
+        </div>
+
+        <div id="about" class="page" style="display: none;">
+            <h1>Halaman About</h1>
+            <p>Informasi tentang website ini.</p>
+        </div>
+
+        <div id="contact" class="page" style="display: none;">
+            <h1>Halaman Contact</h1>
+            <p>Hubungi kami di sini.</p>
+        </div>
+    </div>
+</body>
+</html>
